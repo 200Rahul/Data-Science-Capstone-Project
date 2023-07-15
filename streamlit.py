@@ -4,7 +4,7 @@
 # In[1]:
 
 
-import streamlit as st
+
 
 
 # In[2]:
@@ -13,7 +13,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import streamlit as st
-from sklearn import *
 import pickle
 
 
