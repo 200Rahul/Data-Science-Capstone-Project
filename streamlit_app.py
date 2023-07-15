@@ -4,20 +4,53 @@
 # In[7]:
 
 
+import pandas as pd
+import numpy as np
 import streamlit as st
-
-st.title('Welcome to my Streamlit app!')
-
-name = st.text_input('What is your name?')
-
-if name:
-    st.write(f'Hello, {name}!')
+from sklearn import *
+import pickle
 
 
-# In[6]:
+# In[2]:
 
 
-from streamlit_webrtc import webrtc_streamer as web
+df = pickle.load(open('data.pkl', 'rb'))
+best_model = pickle.load(open('car_prediction.pkl', 'rb'))
+
+st.title('Car Selling Price Predictor')
+
+st.header('Fill the details to predict the Car price')
+
+# brand_name - drop down
+brand = st.selectbox('Brand', df['brand_name'].unique())
+# car_name - drop down
+car = st.selectbox('Car Name', df['car_name'].unique())
+# Year - drop down
+year = st.selectbox('Year', df['year'].unique())
+# KM Driven - number input
+km = st.number_input('KMs Driven')
+# fuel - drop down
+fuel = st.selectbox('Fuel', df['fuel'].unique())
+# seller_type - drop down
+seller_type = st.selectbox('Are you an Individual or a Dealer', df['seller_type'].unique())
+# transmission - drop down
+transmission = st.selectbox('Transmission', df['transmission'].unique())
+# owner - drop down
+owner = st.selectbox('Owner', df['owner'].unique())
+
+
+
+if st.button('Predict Car Price') :
+    test_data = np.array([brand, car, year, km, fuel, seller_type, transmission, owner])
+    test_data = test_data.reshape([1,8])
+
+    st.success(f"Rs. {best_model.predict(test_data)[0].round(2)}")
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
