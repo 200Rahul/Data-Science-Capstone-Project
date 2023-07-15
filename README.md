@@ -1,2 +1,3 @@
 # Data-Science-Capstone-Project
-Prepare ml model using ml algorithm to find best car prediction.
+By utilizing advanced machine learning algorithms, we can prepare a predictive model to accurately determine the best car options for your needs
+
