@@ -10,7 +10,7 @@ import numpy as np
 from PIL import Image
 
 # Load and display the car image
-car_image = Image.open("C:\\Users\\Arti Rajawat\\OneDrive\\Documents\\webpage\\car image.jpeg")
+car_image = Image.open("car image.jpeg")
 st.image(car_image, caption='Car Image', use_column_width=True)
 
 
